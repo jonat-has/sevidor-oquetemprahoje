@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { AppDataSource } from '../data-source';
-import { Ingredientes } from '../models/Ingrediente';
+import { Ingredientes } from '../models/ingredientes/Ingrediente';
 
 export default {
 
@@ -11,5 +11,4 @@ async exibirIngredient (req: Request, res: Response){
   } catch (error) {
     return res.status(404).send('Erro')
   }
-}
-}
+}};
