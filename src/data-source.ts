@@ -1,9 +1,11 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { Ingredientes } from "./models/ingredientes/Ingrediente"
-import { User } from "./models/user/User"
+import { Cliente } from "./models/cliente/Cliente"
 import { Receita } from "./models/receita/Receita"
-import { Ingrediente_receita } from "./models/ingrediente_receita/Ingrediente_receita"
+import { Ingredientes_receita } from "./models/ingrediente_receita/Ingrediente_receita"
+import { Despensa } from "./models/despensa/Despensa"
+import { Ingredientes_despensa } from "./models/ingrediente_despensa/Ingredientes_despensa"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,6 +14,6 @@ export const AppDataSource = new DataSource({
     username: 'root',
     password: '8591',
     database: 'projetoweb2',
-    entities: [ Ingredientes,User,Receita,Ingrediente_receita ],
+    entities: [ Ingredientes, Cliente, Receita, Ingredientes_receita, Despensa, Ingredientes_despensa ],
     synchronize: false,
 })

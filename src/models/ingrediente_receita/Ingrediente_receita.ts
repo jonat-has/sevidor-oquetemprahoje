@@ -1,8 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn,ManyToOne,JoinColumn } from "typeorm";
+import { Receita } from "../receita/Receita";
+import { Ingredientes } from "../ingredientes/Ingrediente";
 
 
 @Entity()
-export class Ingrediente_receita {
+export class Ingredientes_receita {
 
     @PrimaryGeneratedColumn()
     codigo_receita: number;
@@ -12,6 +14,14 @@ export class Ingrediente_receita {
 
     @Column()
     qtd_ingrediente: number;
+
+    @ManyToOne(() => Receita, (receita) => receita.ingredientes)
+    @JoinColumn({ name: 'codigo_receita' })
+    receita: Receita;
+
+    @ManyToOne(() => Ingredientes, (ingrediente) => ingrediente.receitas)
+    @JoinColumn({ name: 'codigo_ingrediente' })
+    ingrediente: Ingredientes;
 }
 
 

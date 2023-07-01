@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn,OneToOne,JoinColumn } from 'typeorm';
+import { Despensa } from '../despensa/Despensa';
 
 @Entity()
-export class User {
+export class Cliente {
     
   @PrimaryGeneratedColumn()
   codigo: number;
@@ -17,6 +18,10 @@ export class User {
 
   @Column()
   email: string;
+
+  @OneToOne(() => Despensa)
+  @JoinColumn({ name: 'codigo_despensa', referencedColumnName: 'codigo' })
+  despensa: Despensa;
 }
 
 /*Columns:
