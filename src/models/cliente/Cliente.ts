@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn,OneToOne,JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn,OneToOne,JoinColumn, AfterInsert } from 'typeorm';
 import { Despensa } from '../despensa/Despensa';
+import { AppDataSource } from '../../data-source';
 
 @Entity()
 export class Cliente {
@@ -19,9 +20,17 @@ export class Cliente {
   @Column()
   email: string;
 
-  @OneToOne(() => Despensa)
-  @JoinColumn({ name: 'codigo_despensa', referencedColumnName: 'codigo' })
+  @OneToOne(() => Despensa, despensa => despensa.cliente)
   despensa: Despensa;
+
+  @AfterInsert()
+  async nova_despensa(){
+    await AppDataSource.createQueryBuilder()
+    .insert()
+    .into(Despensa)
+    .values({ codigo_cliente: this.codigo })
+    .execute()
+  }
 }
 
 /*Columns:

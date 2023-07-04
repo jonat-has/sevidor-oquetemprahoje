@@ -13,7 +13,7 @@ export const AppDataSource = new DataSource({
     port: 3306,
     username: 'root',
     password: '8591',
-    database: 'projetoweb2',
+    database: 'oquetemprahoje',
     entities: [ Ingredientes, Cliente, Receita, Ingredientes_receita, Despensa, Ingredientes_despensa ],
-    synchronize: false,
+    synchronize: true,
 })

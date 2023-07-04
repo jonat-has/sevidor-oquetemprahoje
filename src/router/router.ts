@@ -2,6 +2,7 @@ import { Router } from 'express'
 import IngredienteController from '../controllers/IngredienteController'
 import ReceitaController from '../controllers/ReceitaController';
 import DespensaController from '../controllers/DespensaController';
+import ClienteController from '../controllers/ClienteController';
 const router = Router();
 
 router.get('/ingredientes',  IngredienteController.exibirIngredient)
@@ -16,5 +17,6 @@ router.delete('/excluirIngreDespensa', DespensaController.excluiUmIngrediente)
 router.put('/alterQtdIngrediente', DespensaController.alterarQtdIngrediente)
 
 router.post('/insertInDespensa', DespensaController.insertDespensa)
+router.post('/newuser', ClienteController.registrarCliente)
 
 export default router;

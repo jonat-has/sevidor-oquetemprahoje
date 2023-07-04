@@ -10,7 +10,7 @@ export class Ingredientes_receita {
     codigo_receita: number;
 
     @Column()
-    Codigo_ingrediente: number;
+    codigo_ingredientes: number;
 
     @Column()
     qtd_ingrediente: number;
@@ -20,7 +20,7 @@ export class Ingredientes_receita {
     receita: Receita;
 
     @ManyToOne(() => Ingredientes, (ingrediente) => ingrediente.receitas)
-    @JoinColumn({ name: 'codigo_ingrediente' })
+    @JoinColumn({ name: 'codigo_ingredientes' })
     ingrediente: Ingredientes;
 }
 

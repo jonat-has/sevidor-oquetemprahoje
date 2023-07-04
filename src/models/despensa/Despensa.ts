@@ -16,7 +16,7 @@ export class Despensa {
     cliente: Cliente;
 
     @OneToMany(() => Ingredientes_despensa, (ingredienteDespensa) => ingredienteDespensa.despensa)
-    ingredientes: Ingredientes_despensa[];
+    ingredientes: Ingredientes_despensa;
 
 }
 /*codigo int PK 
