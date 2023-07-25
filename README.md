@@ -1,3 +1,7 @@
+Projeto de Requisições HTTP
+Foi usado typeorm para fazer o mapeamento do banco de dados e os controllers
+com express para a criação das rotas.
+
 # Awesome Project Build with TypeORM
 
 Steps to run this project:
@@ -5,7 +9,6 @@ Steps to run this project:
 1. Run `npm i` command
 2. Setup database settings inside `data-source.ts` file
 3. Run `npm start` command
-
 
 -- Criação da tabela Receita
 CREATE TABLE receita (
